@@ -1,45 +1,139 @@
 .overview * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .automation-builder {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	height: 100%;
 }
 
 .automation-builder .reactflow-wrapper {
-    flex-grow: 1;
-    height: 100%;
+	flex-grow: 1;
+	height: 100%;
 }
 
 .automation-builder aside.sidebar {
-    background: #fcfcfc;
-    border-left: 1px solid #000000;
-    padding: 10px;
+	background: #fcfcfc;
+	border-left: 1px solid #000000;
+	padding: 16px;
+	width: 25%;
 }
 
 .automation-builder aside .description {
-    margin-bottom: 10px;
+	margin-top: 16px;
+	color: #000;
+}
+
+.automation-builder .nodes-container {
+	display: flex;
+	flex-direction: row;
+	padding: 16px 0;
+	width: 100%;
 }
 
 .automation-builder .dndnode {
-    height: 20px;
-    padding: 4px;
-    border: 1px solid #1a192b;
-    border-radius: 2px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: grab;
+	height: 50px;
+	padding: 4px;
+	border: 1px solid #1a192b;
+	color: #1a192b;
+	border-radius: 4px;
+	margin: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: grab;
+	width: 120px;
 }
 
 .automation-builder .dndnode.input {
-    background-color: chartreuse;
+	background-color: #1976d214;
+	color: #1976d2;
+	border: 1px solid #1976d2;
 }
 
 .automation-builder .dndnode.output {
-    background-color: aqua;
+	background-color: #9619d214;
+	color: #9619d2;
+	border: 1px solid #9619d2;
+}
+
+.automation-builder .dndnode.email {
+	background-color: #edb20014;
+	color: #edb200;
+	border: 1px solid #edb200;
+}
+
+.automation-builder .edit-node-name {
+	color: #000;
+	display: flex;
+	align-items: center;
+	margin: 16px 0;
+}
+
+.automation-builder .edit-node-name input {
+	width: 100%;
+	padding: 8px;
+	background-color: #f0f0f0;
+	color: #000;
+	border-radius: 4px;
+	margin-left: 8px;
+}
+
+.automation-builder .edit-node-save-btn {
+	width: 100%;
+	padding: 8px;
+	background: #1976d2;
+	border-radius: 4px;
+}
+
+.automation-builder .custom-node {
+	padding: 8px;
+	border: 1px solid #1a192b;
+	color: #1a192b;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: grab;
+	min-width: 100px;
+	font-size: 0.8rem;
+}
+
+.automation-builder .custom-node.email {
+	background-color: #edb20014;
+	color: #edb200;
+	border: 1px solid #edb200;
+}
+
+.automation-builder .custom-node.email.selected {
+	border: 1px dashed #edb200;
+}
+
+.automation-builder .custom-node.document {
+	background-color: #1976d214;
+	color: #1976d2;
+	border: 1px solid #1976d2;
+}
+
+.automation-builder .custom-node.document.selected {
+	border: 1px dashed #1976d2;
+}
+
+.automation-builder .edit-node-btn {
+	color: #fff;
+	background: #edb200;
+	padding: 0;
+	font-size: 0.5rem;
+	margin-left: 8px;
+}
+
+.automation-builder .save-nodes-btn {
+	padding: 8px;
+	border-radius: 4px;
+	position: absolute;
+	z-index: 10;
+	top: 16px;
+	left: 16px;
 }

@@ -2,14 +2,13 @@ import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { memo } from 'react';
 
-type EmailNode = Node<{ id: string; label: string }, 'string'>;
+type DocumentNode = Node<{ id: string; label: string }, 'string'>;
 
-const EmailNode = ({ id, data, selected }: NodeProps<EmailNode>) => {
+const DocumentNode = ({ id, data, selected }: NodeProps<DocumentNode>) => {
 	const { setEditingNodeId } = useEditNodeContext();
 
 	return (
-		<div className={`custom-node email${selected ? ' selected' : ''}`}>
-			<Handle type='target' position={Position.Left} />
+		<div className={`custom-node document${selected ? ' selected' : ''}`}>
 			<div>
 				{data.label}
 				{selected && (
@@ -26,4 +25,4 @@ const EmailNode = ({ id, data, selected }: NodeProps<EmailNode>) => {
 	);
 };
 
-export default memo(EmailNode);
+export default memo(DocumentNode);
