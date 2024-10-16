@@ -35,34 +35,53 @@
 
 .automation-builder .dndnode {
 	height: 50px;
-	padding: 4px;
+	padding: 8px;
 	border: 1px solid #1a192b;
 	color: #1a192b;
 	border-radius: 4px;
-	margin: 6px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
+	font-size: 0.8rem;
 	cursor: grab;
-	width: 120px;
+	min-width: 120px;
 }
 
-.automation-builder .dndnode.input {
+.automation-builder .dndnode.document {
 	background-color: #1976d214;
 	color: #1976d2;
 	border: 1px solid #1976d2;
 }
 
-.automation-builder .dndnode.output {
+.automation-builder .dndnode.text-translation {
 	background-color: #9619d214;
 	color: #9619d2;
 	border: 1px solid #9619d2;
 }
 
 .automation-builder .dndnode.email {
-	background-color: #edb20014;
-	color: #edb200;
-	border: 1px solid #edb200;
+	background-color: #ba710014;
+	color: #ba7100;
+	border: 1px solid #ba7100;
+}
+
+.automation-builder .dndnode.text-classification {
+	background-color: #22c47d14;
+	color: #22c47d;
+	border: 1px solid #22c47d;
+}
+
+.automation-builder .dndnode.language-detection {
+	background-color: #e5000014;
+	color: #e50000;
+	border: 1px solid #e50000;
+}
+
+.automation-builder .dndnode.sentiment-analysis {
+	background-color: #00bbce14;
+	color: #00bbce;
+	border: 1px solid #00bbce;
 }
 
 .automation-builder .edit-node-name {
@@ -70,15 +89,6 @@
 	display: flex;
 	align-items: center;
 	margin: 16px 0;
-}
-
-.automation-builder .edit-node-name input {
-	width: 100%;
-	padding: 8px;
-	background-color: #f0f0f0;
-	color: #000;
-	border-radius: 4px;
-	margin-left: 8px;
 }
 
 .automation-builder .edit-node-save-btn {
@@ -98,17 +108,17 @@
 	align-items: center;
 	cursor: grab;
 	min-width: 100px;
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 }
 
 .automation-builder .custom-node.email {
-	background-color: #edb20014;
-	color: #edb200;
-	border: 1px solid #edb200;
+	background-color: #ba710014;
+	color: #ba7100;
+	border: 1px solid #ba7100;
 }
 
 .automation-builder .custom-node.email.selected {
-	border: 1px dashed #edb200;
+	border: 1px dashed #ba7100;
 }
 
 .automation-builder .custom-node.document {
@@ -121,17 +131,80 @@
 	border: 1px dashed #1976d2;
 }
 
+.automation-builder .custom-node.text-classification {
+	background-color: #22c47d14;
+	color: #22c47d;
+	border: 1px solid #22c47d;
+}
+
+.automation-builder .custom-node.text-classification.selected {
+	border: 1px dashed #22c47d;
+}
+
+.automation-builder .custom-node.text-translation {
+	background-color: #9619d214;
+	color: #9619d2;
+	border: 1px solid #9619d2;
+}
+
+.automation-builder .custom-node.text-translation.selected {
+	border: 1px dashed #9619d2;
+}
+
+.automation-builder .custom-node.sentiment-analysis {
+	background-color: #00bbce14;
+	color: #00bbce;
+	border: 1px solid #00bbce;
+}
+
+.automation-builder .custom-node.sentiment-analysis.selected {
+	border: 1px dashed #00bbce;
+}
+
+.automation-builder .custom-node.language-detection {
+	background-color: #e5000014;
+	color: #e50000;
+	border: 1px solid #e50000;
+}
+
+.automation-builder .custom-node.language-detection.selected {
+	border: 1px dashed #e50000;
+}
+
 .automation-builder .edit-node-btn {
-	color: #fff;
-	background: #edb200;
-	padding: 0;
-	font-size: 0.5rem;
-	margin-left: 8px;
+	margin-left: 10px;
+	padding: 3px;
+}
+
+.automation-builder .edit-node-icon {
+	font-size: 0.5em;
+}
+
+.automation-builder .edit-node-btn.email {
+	background: #ba710040;
+}
+
+.automation-builder .edit-node-btn.document {
+	background: #1976d240;
+}
+
+.automation-builder .edit-node-btn.text-translation {
+	background: #9619d240;
+}
+
+.automation-builder .edit-node-btn.language-detection {
+	background: #e5000040;
+}
+
+.automation-builder .edit-node-btn.text-classification {
+	background: #22c47d40;
+}
+
+.automation-builder .edit-node-btn.sentiment-analysis {
+	background: #00bbce40;
 }
 
 .automation-builder .save-nodes-btn {
-	padding: 8px;
-	border-radius: 4px;
 	position: absolute;
 	z-index: 10;
 	top: 16px;

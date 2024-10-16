@@ -1,6 +1,8 @@
-import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
-import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { memo } from 'react';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import { Handle, Node, NodeProps, Position } from '@xyflow/react';
+import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
 
 type DocumentNode = Node<{ id: string; label: string }, 'string'>;
 
@@ -12,12 +14,14 @@ const DocumentNode = ({ id, data, selected }: NodeProps<DocumentNode>) => {
 			<div>
 				{data.label}
 				{selected && (
-					<button
-						className='edit-node-btn'
+					<IconButton
+						size='small'
+						color='inherit'
 						onClick={() => setEditingNodeId(id)}
+						className='edit-node-btn document'
 					>
-						Edit
-					</button>
+						<EditIcon className='edit-node-icon' />
+					</IconButton>
 				)}
 			</div>
 			<Handle type='source' position={Position.Right} />

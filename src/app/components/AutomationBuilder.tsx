@@ -5,15 +5,25 @@ import { Background, Controls, MiniMap, NodeTypes, ReactFlow } from '@xyflow/rea
 import Sidebar from './Sidebar';
 import '@xyflow/react/dist/style.css';
 import './styles.css';
+import Button from '@mui/material/Button';
 import EmailNode from './nodes/EmailNode';
 import { EditNodeProvider } from '../contexts/EditNodeContext';
 import { useSetupAutomationBuilder } from '../hooks/useSetupAutomationBuilder';
 import DocumentNode from './nodes/DocumentNode';
+import TextTranslationNode from './nodes/TextTranslationNode';
+import TextClassificationNode from './nodes/TextClassificationNode';
+import EditNodeModal from './EditNodeModal';
+import LanguageDetectionNode from './nodes/LanguageDetectionNode';
+import SentimentAnalysisNode from './nodes/SentimentAnalysisNode';
 
 // list of possible node types
 const nodeTypes: NodeTypes = {
 	email: EmailNode,
 	document: DocumentNode,
+	textTranslation: TextTranslationNode,
+	textClassification: TextClassificationNode,
+	languageDetection: LanguageDetectionNode,
+	sentimentAnalysis: SentimentAnalysisNode,
 };
 
 const AutomationBuilder = () => {
@@ -63,9 +73,18 @@ const AutomationBuilder = () => {
 						<Controls />
 						<Background />
 					</ReactFlow>
-					<button className='save-nodes-btn'>Save nodes</button>
+					<Button
+						disableElevation
+						variant='outlined'
+						color='inherit'
+						className='save-nodes-btn'
+						size='small'
+					>
+						Save nodes
+					</Button>
 				</div>
 				<Sidebar />
+				{editingNode && <EditNodeModal />}
 			</div>
 		</EditNodeProvider>
 	);

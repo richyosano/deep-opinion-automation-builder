@@ -4,13 +4,18 @@ import IconButton from '@mui/material/IconButton';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
 
-type EmailNode = Node<{ id: string; label: string }, 'string'>;
+type LanguageDetectionNode = Node<{ id: string; label: string }, 'string'>;
 
-const EmailNode = ({ id, data, selected }: NodeProps<EmailNode>) => {
+const LanguageDetectionNode = ({
+	id,
+	data,
+	selected,
+}: NodeProps<LanguageDetectionNode>) => {
 	const { setEditingNodeId } = useEditNodeContext();
 
 	return (
-		<div className={`custom-node email${selected ? ' selected' : ''}`}>
+		<div className={`custom-node language-detection${selected ? ' selected' : ''}`}>
+			<Handle type='target' position={Position.Left} />
 			<div>
 				{data.label}
 				{selected && (
@@ -18,7 +23,7 @@ const EmailNode = ({ id, data, selected }: NodeProps<EmailNode>) => {
 						size='small'
 						color='inherit'
 						onClick={() => setEditingNodeId(id)}
-						className='edit-node-btn email'
+						className='edit-node-btn language-detection'
 					>
 						<EditIcon className='edit-node-icon' />
 					</IconButton>
@@ -29,4 +34,4 @@ const EmailNode = ({ id, data, selected }: NodeProps<EmailNode>) => {
 	);
 };
 
-export default memo(EmailNode);
+export default memo(LanguageDetectionNode);

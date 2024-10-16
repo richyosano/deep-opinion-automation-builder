@@ -1,11 +1,9 @@
+import Grid from '@mui/material/Grid2';
 import { useDnD } from '../contexts/DnDContext';
 import './styles.css';
-import EditNodeModal from './EditNodeModal';
-import { useEditNodeContext } from '../contexts/EditNodeContext';
 
 const Sidebar = () => {
 	const { setType } = useDnD();
-	const { editingNode } = useEditNodeContext();
 
 	const onDragStart = (event: React.DragEvent, nodeType: string) => {
 		setType(nodeType);
@@ -15,39 +13,73 @@ const Sidebar = () => {
 	return (
 		<aside className='sidebar'>
 			<div className='description'>
-				<h3>Nodes</h3>
+				<h3>Actions</h3>
 			</div>
 			<div className='nodes-container'>
-				<div
-					className='dndnode input'
-					onDragStart={(event) => onDragStart(event, 'input')}
-					draggable
-				>
-					Input
-				</div>
-				<div
-					className='dndnode'
-					onDragStart={(event) => onDragStart(event, 'default')}
-					draggable
-				>
-					Default
-				</div>
-				<div
-					className='dndnode output'
-					onDragStart={(event) => onDragStart(event, 'output')}
-					draggable
-				>
-					Output
-				</div>
-				<div
-					className='dndnode email'
-					onDragStart={(event) => onDragStart(event, 'email')}
-					draggable
-				>
-					Email
-				</div>
+				<Grid container spacing={2}>
+					<Grid size={6}>
+						<div
+							className='dndnode document'
+							onDragStart={(event) => onDragStart(event, 'document')}
+							draggable
+						>
+							Document
+						</div>
+					</Grid>
+
+					<Grid size={6}>
+						<div
+							className='dndnode text-translation'
+							onDragStart={(event) => onDragStart(event, 'textTranslation')}
+							draggable
+						>
+							Text Translation
+						</div>
+					</Grid>
+					<Grid size={6}>
+						<div
+							className='dndnode text-classification'
+							onDragStart={(event) =>
+								onDragStart(event, 'textClassification')
+							}
+							draggable
+						>
+							Text Classification
+						</div>
+					</Grid>
+					<Grid size={6}>
+						<div
+							className='dndnode email'
+							onDragStart={(event) => onDragStart(event, 'email')}
+							draggable
+						>
+							Email
+						</div>
+					</Grid>
+					<Grid size={6}>
+						<div
+							className='dndnode language-detection'
+							onDragStart={(event) =>
+								onDragStart(event, 'languageDetection')
+							}
+							draggable
+						>
+							Language Detection
+						</div>
+					</Grid>
+					<Grid size={6}>
+						<div
+							className='dndnode sentiment-analysis'
+							onDragStart={(event) =>
+								onDragStart(event, 'sentimentAnalysis')
+							}
+							draggable
+						>
+							Sentiment Analysis
+						</div>
+					</Grid>
+				</Grid>
 			</div>
-			{editingNode && <EditNodeModal />}
 		</aside>
 	);
 };

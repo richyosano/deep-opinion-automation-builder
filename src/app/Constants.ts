@@ -10,13 +10,14 @@ export const initialNodes: Node[] = [
 	{
 		id: '2',
 		position: { x: 0, y: 100 },
-		data: { label: 'Default' },
+		data: { label: 'Document' },
+		type: 'document',
 	},
 	{
 		id: '3',
 		position: { x: 200, y: 100 },
-		data: { label: 'Document' },
-		type: 'document',
+		data: { label: 'Text Translation' },
+		type: 'textTranslation',
 	},
 ];
 
