@@ -8,7 +8,7 @@ import './styles.css';
 import Button from '@mui/material/Button';
 import EmailNode from './nodes/EmailNode';
 import { EditNodeProvider } from '../contexts/EditNodeContext';
-import { useSetupAutomationBuilder } from '../hooks/useSetupAutomationBuilder';
+import { useAutomationBuilder } from '../hooks/useAutomationBuilder';
 import DocumentNode from './nodes/DocumentNode';
 import TextTranslationNode from './nodes/TextTranslationNode';
 import TextClassificationNode from './nodes/TextClassificationNode';
@@ -40,7 +40,8 @@ const AutomationBuilder = () => {
 		onConnect,
 		onDragOver,
 		onDrop,
-	} = useSetupAutomationBuilder();
+		handleSaveProgress,
+	} = useAutomationBuilder();
 
 	const editNodeValue = useMemo(() => {
 		return {
@@ -77,10 +78,11 @@ const AutomationBuilder = () => {
 						disableElevation
 						variant='outlined'
 						color='inherit'
-						className='save-nodes-btn'
+						className='save-progress-btn'
 						size='small'
+						onClick={handleSaveProgress}
 					>
-						Save nodes
+						Save Progress
 					</Button>
 				</div>
 				<Sidebar />

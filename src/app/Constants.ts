@@ -4,14 +4,14 @@ export const initialNodes: Node[] = [
 	{
 		id: '1',
 		position: { x: 0, y: 0 },
-		data: { label: 'Email' },
-		type: 'email',
+		data: { label: 'Document' },
+		type: 'document',
 	},
 	{
 		id: '2',
 		position: { x: 0, y: 100 },
-		data: { label: 'Document' },
-		type: 'document',
+		data: { label: 'Language Detection' },
+		type: 'languageDetection',
 	},
 	{
 		id: '3',

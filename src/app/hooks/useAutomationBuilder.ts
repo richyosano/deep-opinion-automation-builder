@@ -9,11 +9,12 @@ import {
 } from '@xyflow/react';
 import { useDnD } from '../contexts/DnDContext';
 import { useEditNode } from './useEditNode';
+import { useValidateAutomationData } from './useValidateAutomationData';
 
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
-export const useSetupAutomationBuilder = () => {
+export const useAutomationBuilder = () => {
 	const { screenToFlowPosition } = useReactFlow();
 	const { type } = useDnD();
 
@@ -23,17 +24,19 @@ export const useSetupAutomationBuilder = () => {
 		nodes,
 		setNodes
 	);
+	const { validate, errorMessage } = useValidateAutomationData({ nodes, edges });
 
 	// we load the data from the server on mount
 	useEffect(() => {
 		const getData = async () => {
 			const data = await fetch('/api/automation');
 			const automation = await data.json();
+
 			setNodes(automation.nodes);
 			setEdges(automation.edges);
 		};
 		getData();
-	}, [setNodes, setEdges]);
+	}, []);
 
 	// various callbacks
 	const onConnect: OnConnect = useCallback(
@@ -72,11 +75,38 @@ export const useSetupAutomationBuilder = () => {
 		[screenToFlowPosition, type, setNodes]
 	);
 
+	const handleSaveProgress = useCallback(async () => {
+		if (validate()) {
+			console.log('Data is valid. Proceeding with submission...');
+			try {
+				const response = await fetch('/api/automation', {
+					method: 'PUT',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ nodes, edges }),
+				});
+
+				if (!response.ok) {
+					console.error(`Error: ${response.statusText}`);
+				}
+
+				const responseData = await response.json();
+				console.log('Data successfully saved:', responseData);
+			} catch (error) {
+				console.error('Failed to save data:', error);
+			}
+		} else {
+			console.log('Data validation failed.');
+		}
+	}, [validate]);
+
 	return {
 		nodes,
 		edges,
 		editingNodeId,
 		editingNode,
+		errorMessage,
 		setEditingNodeId,
 		handleEditNode,
 		onNodesChange,
@@ -84,5 +114,6 @@ export const useSetupAutomationBuilder = () => {
 		onConnect,
 		onDragOver,
 		onDrop,
+		handleSaveProgress,
 	};
 };
