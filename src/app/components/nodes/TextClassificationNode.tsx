@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import TextClassificationIcon from '@mui/icons-material/DocumentScannerOutlined';
 import IconButton from '@mui/material/IconButton';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
@@ -15,9 +16,9 @@ const TextClassificationNode = ({
 
 	return (
 		<div className={`custom-node text-classification${selected ? ' selected' : ''}`}>
-			<Handle type='target' position={Position.Left} />
 			<Handle type='target' position={Position.Top} />
-			<div>
+			<div className='custom-node-container'>
+				<TextClassificationIcon className='custom-node-icon' />
 				{data.label}
 				{selected && (
 					<IconButton

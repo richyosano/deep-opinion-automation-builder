@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import LanguageIcon from '@mui/icons-material/Language';
 import IconButton from '@mui/material/IconButton';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
@@ -16,7 +17,8 @@ const LanguageDetectionNode = ({
 	return (
 		<div className={`custom-node language-detection${selected ? ' selected' : ''}`}>
 			<Handle type='target' position={Position.Left} />
-			<div>
+			<div className='custom-node-container'>
+				<LanguageIcon className='custom-node-icon' />
 				{data.label}
 				{selected && (
 					<IconButton
@@ -29,7 +31,7 @@ const LanguageDetectionNode = ({
 					</IconButton>
 				)}
 			</div>
-			<Handle type='source' position={Position.Right} />
+			<Handle type='source' position={Position.Bottom} />
 		</div>
 	);
 };

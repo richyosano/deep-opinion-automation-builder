@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import TranslateIcon from '@mui/icons-material/Translate';
 import IconButton from '@mui/material/IconButton';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
@@ -12,7 +13,8 @@ const TextTranslationNode = ({ id, data, selected }: NodeProps<TextTranslationNo
 	return (
 		<div className={`custom-node text-translation${selected ? ' selected' : ''}`}>
 			<Handle type='target' position={Position.Left} />
-			<div>
+			<div className='custom-node-container'>
+				<TranslateIcon className='custom-node-icon' />
 				{data.label}
 				{selected && (
 					<IconButton

@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import SentimentAnalysisIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import IconButton from '@mui/material/IconButton';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
@@ -15,8 +16,9 @@ const SentimentAnalysisNode = ({
 
 	return (
 		<div className={`custom-node sentiment-analysis${selected ? ' selected' : ''}`}>
-			<Handle type='target' position={Position.Left} />
-			<div>
+			<Handle type='target' position={Position.Top} />
+			<div className='custom-node-container'>
+				<SentimentAnalysisIcon className='custom-node-icon' />
 				{data.label}
 				{selected && (
 					<IconButton

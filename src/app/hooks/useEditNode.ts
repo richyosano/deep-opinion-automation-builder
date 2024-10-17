@@ -26,7 +26,7 @@ export const useEditNode = (
 
 			setEditingNodeId(null);
 		},
-		[editingNodeId]
+		[editingNodeId, editingNode, setNodes]
 	);
 
 	return {

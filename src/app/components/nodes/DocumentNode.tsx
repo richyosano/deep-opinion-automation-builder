@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
+import DocumentIcon from '@mui/icons-material/Description';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
 
@@ -11,7 +12,8 @@ const DocumentNode = ({ id, data, selected }: NodeProps<DocumentNode>) => {
 
 	return (
 		<div className={`custom-node document${selected ? ' selected' : ''}`}>
-			<div>
+			<div className='custom-node-container'>
+				<DocumentIcon className='custom-node-icon' />
 				{data.label}
 				{selected && (
 					<IconButton
@@ -24,7 +26,7 @@ const DocumentNode = ({ id, data, selected }: NodeProps<DocumentNode>) => {
 					</IconButton>
 				)}
 			</div>
-			<Handle type='source' position={Position.Right} />
+			<Handle type='source' position={Position.Bottom} />
 		</div>
 	);
 };

@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import EmailIcon from '@mui/icons-material/Email';
 import IconButton from '@mui/material/IconButton';
 import { Handle, Node, NodeProps, Position } from '@xyflow/react';
 import { useEditNodeContext } from '@/app/contexts/EditNodeContext';
@@ -11,7 +12,8 @@ const EmailNode = ({ id, data, selected }: NodeProps<EmailNode>) => {
 
 	return (
 		<div className={`custom-node email${selected ? ' selected' : ''}`}>
-			<div>
+			<div className='custom-node-container'>
+				<EmailIcon className='custom-node-icon' />
 				{data.label}
 				{selected && (
 					<IconButton

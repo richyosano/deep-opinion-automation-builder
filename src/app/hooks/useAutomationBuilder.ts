@@ -1,6 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
 	addEdge,
+	Edge,
 	Node,
 	OnConnect,
 	useEdgesState,
@@ -19,11 +20,13 @@ export const useAutomationBuilder = () => {
 	const { type } = useDnD();
 
 	const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
-	const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+	const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
 	const { editingNodeId, editingNode, setEditingNodeId, handleEditNode } = useEditNode(
 		nodes,
 		setNodes
 	);
+	const [successAlertOpen, setSuccessAlertOpen] = useState<boolean>(false);
+	const [errorAlertOpen, setErrorAlertOpen] = useState<boolean>(false);
 	const { validate, errorMessage } = useValidateAutomationData({ nodes, edges });
 
 	// we load the data from the server on mount
@@ -72,12 +75,13 @@ export const useAutomationBuilder = () => {
 			setNodes((prevNodes) => [...prevNodes, newNode]);
 			setEditingNodeId(newNode.id);
 		},
-		[screenToFlowPosition, type, setNodes]
+		[screenToFlowPosition, type, setNodes, setEditingNodeId]
 	);
 
 	const handleSaveProgress = useCallback(async () => {
-		if (validate()) {
-			console.log('Data is valid. Proceeding with submission...');
+		const isValid = await validate();
+		if (isValid) {
+			setSuccessAlertOpen(true);
 			try {
 				const response = await fetch('/api/automation', {
 					method: 'PUT',
@@ -97,9 +101,9 @@ export const useAutomationBuilder = () => {
 				console.error('Failed to save data:', error);
 			}
 		} else {
-			console.log('Data validation failed.');
+			setErrorAlertOpen(true);
 		}
-	}, [validate]);
+	}, [validate, nodes, edges]);
 
 	return {
 		nodes,
@@ -115,5 +119,9 @@ export const useAutomationBuilder = () => {
 		onDragOver,
 		onDrop,
 		handleSaveProgress,
+		successAlertOpen,
+		setSuccessAlertOpen,
+		errorAlertOpen,
+		setErrorAlertOpen,
 	};
 };

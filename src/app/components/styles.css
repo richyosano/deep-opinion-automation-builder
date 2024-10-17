@@ -26,23 +26,18 @@
 	color: #000;
 }
 
-.automation-builder .nodes-container {
-	display: flex;
-	flex-direction: row;
-	padding: 16px 0;
-	width: 100%;
+.automation-builder .dndnode-icon {
+	margin-right: 12px;
 }
 
 .automation-builder .dndnode {
 	height: 50px;
-	padding: 8px;
+	padding: 16px;
 	border: 1px solid #1a192b;
 	color: #1a192b;
 	border-radius: 4px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	text-align: center;
 	font-size: 0.8rem;
 	cursor: grab;
 	min-width: 120px;
@@ -55,15 +50,15 @@
 }
 
 .automation-builder .dndnode.text-translation {
-	background-color: #9619d214;
-	color: #9619d2;
-	border: 1px solid #9619d2;
+	background-color: #d400e914;
+	color: #d400e9;
+	border: 1px solid #d400e9;
 }
 
 .automation-builder .dndnode.email {
-	background-color: #ba710014;
-	color: #ba7100;
-	border: 1px solid #ba7100;
+	background-color: #ef910014;
+	color: #ef9100;
+	border: 1px solid #ef9100;
 }
 
 .automation-builder .dndnode.text-classification {
@@ -98,27 +93,36 @@
 	border-radius: 4px;
 }
 
+.automation-builder .custom-node-container {
+	display: flex;
+	align-items: center;
+}
+
+.automation-builder .custom-node-icon {
+	margin-right: 8px;
+	font-size: 0.8rem;
+}
+
 .automation-builder .custom-node {
-	padding: 8px;
+	padding: 10px;
 	border: 1px solid #1a192b;
 	color: #1a192b;
 	border-radius: 4px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	cursor: grab;
-	min-width: 100px;
-	font-size: 0.7rem;
+	min-width: 90px;
+	font-size: 0.6rem;
 }
 
 .automation-builder .custom-node.email {
-	background-color: #ba710014;
-	color: #ba7100;
-	border: 1px solid #ba7100;
+	background-color: #ef910014;
+	color: #ef9100;
+	border: 1px solid #ef9100;
 }
 
 .automation-builder .custom-node.email.selected {
-	border: 1px dashed #ba7100;
+	border: 1px dashed #ef9100;
 }
 
 .automation-builder .custom-node.document {
@@ -142,13 +146,13 @@
 }
 
 .automation-builder .custom-node.text-translation {
-	background-color: #9619d214;
-	color: #9619d2;
-	border: 1px solid #9619d2;
+	background-color: #d400e914;
+	color: #d400e9;
+	border: 1px solid #d400e9;
 }
 
 .automation-builder .custom-node.text-translation.selected {
-	border: 1px dashed #9619d2;
+	border: 1px dashed #d400e9;
 }
 
 .automation-builder .custom-node.sentiment-analysis {
@@ -181,7 +185,7 @@
 }
 
 .automation-builder .edit-node-btn.email {
-	background: #ba710040;
+	background: #ef910040;
 }
 
 .automation-builder .edit-node-btn.document {
@@ -189,7 +193,7 @@
 }
 
 .automation-builder .edit-node-btn.text-translation {
-	background: #9619d240;
+	background: #d400e940;
 }
 
 .automation-builder .edit-node-btn.language-detection {
