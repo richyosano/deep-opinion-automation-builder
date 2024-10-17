@@ -1,5 +1,4 @@
-import React, { act } from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AutomationBuilder from '@/app/components/AutomationBuilder';
 import { useAutomationBuilder } from '@/app/hooks/useAutomationBuilder';
