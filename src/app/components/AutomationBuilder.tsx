@@ -63,11 +63,7 @@ const AutomationBuilder = () => {
 	return (
 		<EditNodeProvider value={editNodeValue}>
 			<div className='automation-builder'>
-				<div
-					className='reactflow-wrapper'
-					ref={reactFlowWrapper}
-					data-testid={'reactflow-wrapper'}
-				>
+				<div className='reactflow-wrapper' ref={reactFlowWrapper}>
 					<ReactFlow
 						colorMode='dark'
 						nodes={nodes}
